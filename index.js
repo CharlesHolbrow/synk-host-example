@@ -1,3 +1,4 @@
 import TestClass from 'synk-js';
 
-t = new TestClass()
+const t = new TestClass();
+console.log('synk-host!!');
