@@ -1,0 +1,31 @@
+{
+  "name": "synk-host",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CharlesHolbrow@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "synk-js": "git+ssh://git@github.com/CharlesHolbrow/synk-js.git"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "eslint": "^4.2.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "comments": false,
+          "presets": [],
+          "plugins": []
+        }
+      ]
+    ]
+  }
+}
