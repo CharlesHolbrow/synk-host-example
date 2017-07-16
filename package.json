@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "kefir": "^3.7.2",
-    "synk-js": "file:///Users/charles/projects/nodejs/synk-js"
+    "synk-js": "git+ssh://git@github.com/CharlesHolbrow/synk-js.git"
   },
   "devDependencies": {
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
     "webpack": "^3.3.0"
   }
 }
