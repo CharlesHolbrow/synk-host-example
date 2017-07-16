@@ -4,33 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "CharlesHolbrow@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "synk-js": "git+ssh://git@github.com/CharlesHolbrow/synk-js.git"
+    "kefir": "^3.7.2",
+    "synk-js": "file:///Users/charles/projects/nodejs/synk-js"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.6.0",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "eslint": "^4.2.0"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "comments": false,
-          "presets": [],
-          "plugins": []
-        }
-      ]
-    ]
+    "webpack": "^3.3.0"
   }
 }
