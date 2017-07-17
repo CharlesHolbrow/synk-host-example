@@ -14,8 +14,8 @@
     "synk-js": "git+ssh://git@github.com/CharlesHolbrow/synk-js.git"
   },
   "devDependencies": {
-    "css-loader": "^0.28.4",
-    "style-loader": "^0.18.2",
+    "clean-webpack-plugin": "^0.1.16",
+    "html-webpack-plugin": "^2.29.0",
     "webpack": "^3.3.0"
   }
 }
