@@ -5,13 +5,15 @@
   "main": "dist/app.bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open"
+    "build:prod": "export ENV=prod; webpack",
+    "build:dev": "export ENV=dev; webpack",
+    "watch": "export ENV=dev; webpack --watch",
+    "start": "export ENV=dev; webpack-dev-server --open"
   },
   "author": "CharlesHolbrow@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "eventemitter3": "^2.0.3",
     "kefir": "^3.7.2",
     "synk-js": "git+ssh://git@github.com/CharlesHolbrow/synk-js.git"
   },
