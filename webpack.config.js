@@ -46,14 +46,21 @@ const config = {
           loader: 'babel-loader',
         },
       },
-      // for now, we are just copying our css and encoding it directly in the  html template
+      // Convert css to javascript code that applies the css to the DOM. This
+      // seems a little silly. When we could just include static files in our
+      // template. However, this is the idiomatic way to add css in webpack.
+      //
+      // Other options:
+      // 1. check css directly into dist folder. Exclude css from clean plugin.
+      // 2. style-ext-html-webpack-plugin package - complex but possibly optimal
+      //
+      // The advantage of having webpack handle is that we don't have to worry
+      // about keeping our template up to date with the correct url.
       {
         test: /\.css$/,
-        use:{
-          loader: 'file-loader?name=[name].[ext]',
-        },
-      }
-    ]
+        use: [ 'style-loader', 'css-loader' ],
+      },
+    ],
   },
 };
 
