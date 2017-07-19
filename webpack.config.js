@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
@@ -20,8 +22,10 @@ const config = {
     }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
-    })
+      title: 'Output Management',
+      template: 'src/index.ejs',
+      inject: 'head',
+    }),
   ],
   resolve: {
     extensions: [".js", ".json", ".es6.js"]
@@ -33,14 +37,21 @@ const config = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       // If we encounter a .es6.js file in node_modules, babel them.
       {
         test: /node_modules.*\.es6\.js$/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
+      },
+      // for now, we are just copying our css and encoding it directly in the  html template
+      {
+        test: /\.css$/,
+        use:{
+          loader: 'file-loader?name=[name].[ext]',
+        },
       }
     ]
   },
@@ -71,7 +82,7 @@ if (process.env.ENV == 'prod') {
   );
 
 } else {
-  console.log('Compiling in Development mode...\n')
+  console.log('Compiling in Development mode...\n');
   config.devtool = 'inline-source-map';
   config.devServer = { contentBase: './dist' };
 }
